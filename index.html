@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=2" />
+    <link rel="stylesheet" href="./styles.css?v=3" />
   </head>
   <body>
     <header class="site-header" aria-label="Encabezado principal">
@@ -31,7 +31,7 @@
         <a href="#experiencia">Experiencia</a>
         <a href="#ubicacion">Ubicacion</a>
       </nav>
-      <a class="header-cta" href="https://maps.app.goo.gl/qqceh7kaSV9q6xqo6" target="_blank" rel="noreferrer">
+      <a class="header-cta" href="#reservar">
         Reservar
       </a>
     </header>
@@ -50,7 +50,7 @@
             Reserva tu cita en Avenida Mexico y sal con un diseño hecho al detalle.
           </p>
           <div class="hero-actions" aria-label="Acciones principales">
-            <a class="button button-primary" href="https://maps.app.goo.gl/qqceh7kaSV9q6xqo6" target="_blank" rel="noreferrer">
+            <a class="button button-primary" href="#reservar">
               Reservar cita
             </a>
             <a class="button button-secondary" href="#galeria">Ver trabajos</a>
@@ -168,17 +168,70 @@
       </section>
 
       <section class="booking" id="reservar" aria-labelledby="booking-title">
-        <div>
+        <div class="booking-copy">
           <p class="section-kicker">Reserva</p>
-          <h2 id="booking-title">Tu siguiente manicure empieza aqui.</h2>
+          <h2 id="booking-title">Elige servicio, fecha y horario disponible.</h2>
           <p>
-            Abre el perfil del salon para ver ruta, datos de contacto y disponibilidad. Para una version con agenda
-            directa, conecta este boton a WhatsApp, Calendly o el sistema de reservas que prefieras.
+            Revisa costos, duracion y disponibilidad para las proximas citas. Puedes elegir una nail tech especifica
+            o ver todos los horarios disponibles del equipo.
           </p>
         </div>
-        <a class="button button-primary" href="https://maps.app.goo.gl/qqceh7kaSV9q6xqo6" target="_blank" rel="noreferrer">
-          Ir a Google Maps
-        </a>
+        <div class="scheduler" aria-label="Calendario de citas">
+          <div class="scheduler-step">
+            <div class="step-heading">
+              <span>1</span>
+              <h3>Servicio</h3>
+            </div>
+            <div class="service-picker" id="service-options"></div>
+          </div>
+
+          <div class="scheduler-step">
+            <div class="step-heading">
+              <span>2</span>
+              <h3>Nail tech</h3>
+            </div>
+            <div class="tech-picker" id="tech-options"></div>
+            <p class="booking-note">Seleccionar una persona reduce los horarios a su agenda disponible.</p>
+          </div>
+
+          <div class="scheduler-step">
+            <div class="step-heading">
+              <span>3</span>
+              <h3>Fecha</h3>
+            </div>
+            <div class="calendar-strip" id="date-options"></div>
+          </div>
+
+          <div class="scheduler-step">
+            <div class="step-heading">
+              <span>4</span>
+              <h3>Horarios disponibles</h3>
+            </div>
+            <div class="slot-grid" id="slot-options" aria-live="polite"></div>
+          </div>
+
+          <form class="booking-form" id="booking-form">
+            <label>
+              Nombre
+              <input type="text" name="name" autocomplete="name" placeholder="Tu nombre" required />
+            </label>
+            <label>
+              Telefono
+              <input type="tel" name="phone" autocomplete="tel" placeholder="Tu telefono" required />
+            </label>
+            <label class="full">
+              Nota opcional
+              <textarea name="notes" rows="3" placeholder="Color, diseno o detalle especial"></textarea>
+            </label>
+            <button class="button button-primary full" type="submit" id="booking-submit" disabled>
+              Solicitar cita
+            </button>
+          </form>
+
+          <div class="booking-summary" id="booking-summary">
+            Selecciona un servicio, fecha y horario para preparar tu cita.
+          </div>
+        </div>
       </section>
 
       <section class="location" id="ubicacion" aria-labelledby="location-title">
@@ -206,7 +259,8 @@
         <strong>SMALTO Nail Bar</strong>
         <p>Manicure, gelish, nail art, unas acrilicas y pedicure spa.</p>
       </div>
-      <a href="https://maps.app.goo.gl/qqceh7kaSV9q6xqo6" target="_blank" rel="noreferrer">Reservar en Google Maps</a>
+      <a href="#reservar">Reservar cita</a>
     </footer>
+    <script src="./script.js?v=1"></script>
   </body>
 </html>
